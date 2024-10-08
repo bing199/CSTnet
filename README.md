@@ -5,6 +5,11 @@ Code for paper:
 ## Abstract
 Cross-scene hyperspectral image (HSI) classification remains a challenging task due to the distribution discrepancies that arise from variations in imaging sensors, geographic regions, atmospheric conditions, and other factors between the source and target domains. Recent research indicates that convolutional neural networks (CNNs) exhibit a significant tendency to prioritize image styles, which are highly sensitive to domain variations, over the actual content of the images. However, few existing domain adaptation (DA) methods for cross-scene HSI classification take into consideration the style variations both within the samples of an HSI and between the cross-scene source and target domains. Accordingly, we propose a novel content-biased and style-assisted transfer network (CSTnet) for unsupervised DA (UDA) in cross-scene HSI classification. The CSTnet introduces a content and style reorganization (CSR) module that disentangles content features from style features via instance normalization (IN), while refining useful style information as a complementary component to enhance discriminability. A contentwise reorganization loss is designed to reduce the disparity between the separated content/style representations and the output features, thereby enhancing content-level alignment across different domains. Furthermore, we incorporate batch nuclear-norm maximization (BNM) as an effective class-balancing technique that directly exploits unlabeled target data to enhance minority class representations without requiring prior knowledge or pseudolabels, achieving better distribution alignment. Comprehensive experiments on three cross-scene HSI datasets demonstrate that the proposed CSTnet achieves state-of-the-art performance, effectively leveraging content bias and style assistance for robust DA in cross-scene HSI classification tasks.
 
+## Methods' framework
+<p align='center'>
+  <img src='figure/overview.png' width="900px">
+</p>
+
 ## Paper
 Please cite our paper if you find the code or dataset useful for your research.
 ```
