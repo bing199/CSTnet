@@ -36,8 +36,9 @@ def load_data(data_folder, batch_size, train, target, num_workers=0, num_samples
                                 shuffle=True if train else False, 
                                 num_workers=num_workers, **kwargs, drop_last=True if train else False)
     
-    n_class = len(np.unique(labels))
-
+    # n_class = len(np.unique(labels))
+    n_class = labels.max()
+    print(" CLASS_NUM  "+str(n_class))
     return data_loader, n_class
 
 class HSIDataset(Dataset):
@@ -109,7 +110,7 @@ class HSIDataset(Dataset):
         
         patch_data = torch.stack(patch_data, dim=0)  # 将小块数据堆叠成一个张量
         patch_data = patch_data.permute(2, 0, 1)  # 将小块数据的通道维度放到第一维
-        patch_labels = self.labels_flattened[center_idx] # 获取中心像素的标签
+        patch_labels = self.labels_flattened[center_idx]-1 # 获取中心像素的标签
         
         return patch_data, patch_labels
 
