@@ -36,8 +36,8 @@ def load_data(data_folder, batch_size, train, target, num_workers=0, num_samples
                                 shuffle=True if train else False, 
                                 num_workers=num_workers, **kwargs, drop_last=True if train else False)
     
-    n_class = len(np.unique(labels))
-
+    # n_class = len(np.unique(labels))
+    n_class = labels.max()
     return data_loader, n_class
 
 class HSIDataset(Dataset):
